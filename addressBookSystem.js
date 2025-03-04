@@ -1,4 +1,17 @@
- let addressBook = [];
+class Contact {
+    constructor(firstName, lastName, address, city, state, zip, phone, email) {
+      this.firstName = firstName;
+      this.lastName = lastName;
+      this.address = address;
+      this.city = city;
+      this.state = state;
+      this.zip = zip;
+      this.phone = phone;
+      this.email = email;
+    }
+  }
+  
+  let addressBook = [];
   function validateContact(contact) {
     const nameRegex = /^[A-Z][a-z]{2,}/;
     const addressRegex = /^.{4,}/;
@@ -21,4 +34,11 @@
     )
       return false;
     return true;
+  }
+  function addContact(contact) {
+    if (validateContact(contact)) {
+      addressBook.push(contact);
+    } else {
+      console.error("Invalid Contact");
+    }
   }
